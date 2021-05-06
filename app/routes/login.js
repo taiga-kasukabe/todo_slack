@@ -1,6 +1,6 @@
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
-// const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
 const express = require('express');
 const router = express.Router();
 
