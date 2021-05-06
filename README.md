@@ -33,5 +33,27 @@ webアプリ開発チームは"dev_web", SlackAPI開発チームは"dev_api"か�
 db/init/api-init.sql に初期データ投入用SQL  
 各テーブルの定義は[データベース定義書](https://docs.google.com/spreadsheets/d/1yEc-2q_Qkn_qyD72VNzlY2g4Kw5G5azJIhhklzH8U5w/edit?usp=sharing) を参照
 
+### データベース初期化の方法
+docker-compose down --volume でdocker volume ごとコンテナを削除した後、  
+docker-compose up する。  
+
+### データベースの情報
+.envに記述  
+各コンテナの環境変数に設定済み  
+Node.js コンテナでは  
+
+- DB_HOST
+- DB_USER
+- DB_PASSWORD
+- DB_DATABASE
+
+にそれぞれ設定  
+
+```getdbinfo.js
+process.env.hoge  
+```
+
+で取得できる。
+
 ## 自動ビルド自動デプロイ
 dev_api にマージされると即時slackでテストできるよう、自動でサーバーにデプロイされる(予定)
