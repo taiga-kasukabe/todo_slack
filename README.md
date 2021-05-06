@@ -6,7 +6,7 @@ GitCloneしてプロジェクトディレクトリ(todo_slack)に移動
 docker-compose up して下記の通り接続できるか確認  
 
 localhost:3000 Node.js ("Welcome to Express" と表示される)  
-localhost:3000/testdb contenstableの内容出力されるか確認。(コネクションプールを使用していないので、再読み込みすると落ちる。)  
+localhost:3000/testdb (contenstableの内容が出力されるか確認。コネクションプールを使用していないので、再読み込みすると落ちる。)  
 localhost:8080 phpmyadmin (DBコンテナの起動が遅いと接続失敗することあり。その場合少し待って再接続)
 
 ## 各ディレクトリの説明
