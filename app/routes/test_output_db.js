@@ -1,4 +1,4 @@
-const connection = require('./dbconnect')
+const connection = require('../dbconnect')
 const express = require('express');
 const router = express.Router();
 
