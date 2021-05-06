@@ -6,6 +6,7 @@ GitCloneしてプロジェクトディレクトリ(todo_slack)に移動
 docker-compose up して下記の通り接続できるか確認  
 
 localhost:3000 Node.js ("Welcome to Express" と表示される)  
+localhost:3000/testdb contenstableの内容出力されるか確認。  
 localhost:8080 phpmyadmin (DBコンテナの起動が遅いと接続失敗することあり。その場合少し待って再接続)
 
 ## 各ディレクトリの説明
@@ -26,7 +27,7 @@ webアプリ開発チームは"dev_web", SlackAPI開発チームは"dev_api"か�
 
 でブランチを切って作業する。  
 作業後はそのままリモートにプッシュ。（ローカルでマージしない）  
-切り離した元のブランチにPullRequestを出す。  
+切り離した元のブランチにPullRequestを出す。(デフォルトのマージ先はmainブランチの点に注意)  
 各チーム内でコードレビューしてマージ。  
 
 ## データベース
@@ -54,6 +55,12 @@ process.env.hoge
 ```
 
 で取得できる。
+
+### データベースへの接続
+
+通常の接続は app/dbconnect.jsをインポートすることで呼び出せる。(参考: app/routes/test_output_db.js)
+コネクションプールやセッションは各自実装する。
+
 
 ## 自動ビルド自動デプロイ
 dev_api にマージされると即時slackでテストできるよう、自動でサーバーにデプロイされる(予定)
