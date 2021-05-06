@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="sample2.js" type="NodeJSConfigurationType" path-to-node="docker://node_docker_app:latest/node" nameIsGenerated="true" path-to-js-file="sample2.js" working-dir="$PROJECT_DIR$/app">
+    <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension" Node.JS.Docker.Generate.Image="true" />
+    <method v="2" />
+  </configuration>
+</component>

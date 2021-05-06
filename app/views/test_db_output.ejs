@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Out put contents table</title>
+</head>
+<body>
+<h1>Out put contents table</h1>
+<table>
+    <% items.forEach((items) =>{%>
+        <tr>
+            <td><%= items.id %></td>
+            <td><%= items.user_id %></td>
+            <td><%= items.text %></td>
+            <td><%= items.task_limit %></td>
+            <td><%= items.done %></td>
+        </tr>
+    <% })%>
+</table>
+
+</body>
+</html>
