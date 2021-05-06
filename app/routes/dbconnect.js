@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 
-const createConnect = () =>{
+exports.createConnect = () =>{
     const connection = mysql.createConnection({
         //環境変数からDB情報取得
         // host: process.env.DB_HOST,
@@ -16,5 +16,3 @@ const createConnect = () =>{
     });
     return connection
 }
-
-export default createConnect;
