@@ -13,22 +13,24 @@ localhost:8080 phpmyadmin (DBコンテナの起動が遅いと接続失敗する
 /db/init: データベースの初期データ投入用SQL
 
 ### 以下/app内の説明
-/api: SlackAPI関連のコード
-/routes: Webアプリのサーバーサイド
-/views: Webアプリのクライアントサイド
-/public/stylesheets: スタイルシート
+/api: SlackAPI関連のコード  
+/routes: Webアプリのサーバーサイド  
+/views: Webアプリのクライアントサイド  
+/public/stylesheets: スタイルシート  
 
 ## ブランチ運用ルール
 webアプリ開発チームは"dev_web", SlackAPI開発チームは"dev_api"からそれぞれ  
-dev_web-作業名  
-dev_api-作業名  
+
+- dev_web-作業名  
+- dev_api-作業名  
+
 でブランチを切って作業する。  
 作業後はそのままリモートにプッシュ。（ローカルでマージしない）  
 切り離した元のブランチにPullRequestを出す。  
 各チーム内でコードレビューしてマージ。  
 
 ## データベース
-db/init/api-init.sql に初期データ投入用SQL
+db/init/api-init.sql に初期データ投入用SQL  
 各テーブルの定義は[データベース定義書](https://docs.google.com/spreadsheets/d/1yEc-2q_Qkn_qyD72VNzlY2g4Kw5G5azJIhhklzH8U5w/edit?usp=sharing) を参照
 
 ## 自動ビルド自動デプロイ
