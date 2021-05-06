@@ -9,14 +9,16 @@ const router = express.Router();
 //     password: 'apppasswd',
 //     database: 'data01'
 // });
-con = connection.createConnection
+con = connection.createConnect()
 router.get('/', (req, res)=>{
+    con.connect();
    con.query(
        'SELECT * FROM contents',
        (error, results) => {
            res.render('test_db_output.ejs', { items: results });
        }
    );
+    con.end();
 });
 
 module.exports = router;
