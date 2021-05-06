@@ -9,11 +9,6 @@ exports.createConnect = () =>{
         user: env.DB_USER,
         password: env.DB_PASSWORD,
         database: env.DB_DATABASE
-        // 暫定で直書き
-        // host: 'db',
-        // user: 'appuser',
-        // password: 'apppasswd',
-        // database: 'data01'
     });
     return connection
 }
