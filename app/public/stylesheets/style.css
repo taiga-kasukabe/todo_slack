@@ -7,6 +7,15 @@ a {
   color: #00B7FF;
 }
 
+.sec
+{ 
+  background-color:#439e19;
+  font-size:16pt;
+  font-weight:bold;
+  font-family: "MS Pゴシック";
+  text-align:center;
+  color: #ffffff;
+}
 
 
 body,p,form,input{margin: 0}
@@ -96,4 +105,46 @@ input[type="password"] {
 
 .submit input:hover{
   background: #4a9228;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*完了ボタン*/
+.btn--green,
+form.btn--green {
+  color: #ffffff;
+  background-color: #40b131;
+}
+.btn--green:hover,
+form.btn--green:hover {
+  color: #000000;
+  background: #40b131;
+}
+
+/*削除*/
+.btn--red,
+form.btn--red {
+  color: #ffffff;
+  background-color: #f12b2b;
+}
+.btn--red:hover,
+form.btn--red:hover {
+  color: #000000;
+  background: #f83a3a;
+}
+
+/*完了*/
+.btn--blue,
+form.btn--blue {
+  color: #ffffff;
+  background-color: #3175db;
+}
+.btn--blue:hover,
+form.btn--blue:hover {
+  color: #000000;
+  background: #3175db;
 }

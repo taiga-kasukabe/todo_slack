@@ -5,32 +5,39 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body bgcolor = "#c8f5c3">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-    <h2>TODOリスト</h2>
+    
+    <h2><p><%= title %>さん</p></h2>
+    <p class = "sec">ToDoリスト</p>
+    <br>
     <table border="3" bgcolor="#ffffff">
       <tr bgcolor = "#44db30">
-        <th>優先順位</th>
+        <th></th>
         <th>タスク名</th>
         <th>期限</th>
         <th>完了</th>
       </tr>
-      <% for (var i = 0; i < 10; i++) { %>
+      <% for (var i = 0; i < 5; i++) { %>
         <tr>
           <th bgcolor = "#cccccc"><%= i+1 %></th>
-          <td><%= i+1 %>個目のタスク（配列で）</td>
-          <td><%= i+1 %>個目の期限（配列で）</td>
-          <td>完了チェック</td>
+          <td><%= i+1 %>個目のタスク</td>
+          <td><%= i+1 %>個目の期限</td>
+          <td bgcolor = "#40b131">
+            <form action="/" methot = "post">
+              <input type="submit" class="btn btn--green" value="完了"/></p>
+            </form>
+          </td>
         </tr>
         <% } %>
       
     </table>
     
-    <button type="submit" formaction="new.ejs" name="new">(追加)</button>
-    <p class="submit"><input type="submit" value="タスクの追加"/></p>
+    <form action="/new" methot = "post">
+      <p class="submit"><input type="submit" value="タスクの追加"/></p>
+    </form>
 
-    <h2>完了タスク</h2>
+    <br><br><br>
+    <p class = "sec">完了タスク</p>
+    <br>
     <table border="3" bgcolor="#ffffff">
       <tr bgcolor = "#44db30">
         <th></th>
@@ -39,17 +46,24 @@
         <th>戻す</th>
         <th>削除</th>
       </tr>
-      <% for (var i = 0; i < 10; i++) { %>
+      <% for (var i = 0; i < 5; i++) { %>
         <tr>
           <th bgcolor = "#cccccc"><%= i+1 %></th>
-          <td><%= i+1 %>個目の完了タスク（配列で）</td>
-          <td><%= i+1 %>個目の完了タスクの期限（配列で）</td>
-          <td>戻すボタン</td>
-          <td>削除ボタン</td>
+          <td><%= i+1 %>個目の完了タスク</td>
+          <td><%= i+1 %>個目の完了タスクの期限</td>
+          <td bgcolor = "#3175db">
+            <form action="/" methot = "post">
+              <input type="submit" class = "btn btn--blue" value="戻す"/></p>
+            </form>
+          </td>
+          <td bgcolor = "#f83a3a">
+            <form action="/delete" methot = "post">
+              <input type="submit" class = "btn btn--red" value="削除"/></p>
+            </form>
+          </td>
         </tr>
         <% } %>
     </table>
-
 
   </body>
 </html>
