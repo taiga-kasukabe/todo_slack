@@ -1,8 +1,7 @@
 // APIトークンを指定する
 
-const api_token = 'xoxp-1751118461474-1980047535394-2068285638304-2d9c3178fbe7d1f627221ba9e7faeb92'
 // OSの環境変数に定義してあれば「process.env.[環境変数名]」で読み込み可能
-// var api_token = process.env.BOT_API_TOKEN
+var api_token = process.env.BOT_API_TOKEN
 if (!api_token) {
     console.log('Error: Specify token in environment');
     process.exit(1);
