@@ -7,6 +7,8 @@ a {
   color: #00B7FF;
 }
 
+
+
 body,p,form,input{margin: 0}
 #form {
   width: 400px;
@@ -37,6 +39,9 @@ input[type="password"] {
     
 .submit {
   text-align: right;
+}
+.submit2 {
+  text-align: left;
 }
 
 /**/
@@ -90,5 +95,5 @@ input[type="password"] {
   }
 
 .submit input:hover{
-  background: #37a4bf;
+  background: #4a9228;
 }
