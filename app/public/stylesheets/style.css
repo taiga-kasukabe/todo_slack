@@ -137,7 +137,7 @@ form.btn--red:hover {
   background: #f83a3a;
 }
 
-/*完了*/
+/*戻る*/
 .btn--blue,
 form.btn--blue {
   color: #ffffff;
@@ -148,3 +148,5 @@ form.btn--blue:hover {
   color: #000000;
   background: #3175db;
 }
+
+

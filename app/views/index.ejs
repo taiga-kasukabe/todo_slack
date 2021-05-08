@@ -9,13 +9,16 @@
     <h2><p><%= title %>さん</p></h2>
     <p class = "sec">ToDoリスト</p>
     <br>
+
     <table border="3" bgcolor="#ffffff">
+
       <tr bgcolor = "#44db30">
         <th></th>
         <th>タスク名</th>
         <th>期限</th>
         <th>完了</th>
       </tr>
+
       <% for (var i = 0; i < 5; i++) { %>
         <tr>
           <th bgcolor = "#cccccc"><%= i+1 %></th>
@@ -38,11 +41,14 @@
     <br><br><br>
     <p class = "sec">完了タスク</p>
     <br>
+    
     <table border="3" bgcolor="#ffffff">
+
       <tr bgcolor = "#44db30">
         <th></th>
         <th>終了タスク名</th>
         <th>期限</th>
+
         <th>戻す</th>
         <th>削除</th>
       </tr>
