@@ -4,8 +4,22 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    
+
+  <body bgcolor = "#c8f5c3">
+
+    <br><br>
+    <div id="form">
+    <p class="form-title">タスク追加</p>
+    <form action="post">
+        <p>タスク名</p>
+        <p class="text"><input type="text" name="text"/></p>
+        <p>期限</p>
+        <p class="task_limit"><input type="date" name="task_limit"/></p>
+
+        <br>
+        <p class="submit"><input type="submit" value="追加"/></p>
+     </form> 
+    </div>
 
   </body>
 </html>
