@@ -6,7 +6,18 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.send('this is login page');
+    res.render('login');
 });
+
+router.post('/', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    // failureFlash: true,
+}));
+
+// router.post('/', (req, res) => {
+//     res.send(req.body)
+// })
+
 
 module.exports = router;

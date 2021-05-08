@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1></h1>
+    <p></p>
 
     <br><br>
     <div id="form">
     <p class="form-title">ログイン画面</p>
-      <form action="post">
+      <form action="/login" method="post">
         <p>ユーザネーム</p>
-        <p class="user"><input type="username" name="user"/></p>
+        <p class="user"><input type="username" name="userid"/></p>
         <p>パスワード</p>
-        <p class="pass"><input type="password" name="pass"/></p>
+        <p class="pass"><input type="password" name="password"/></p>
         <p class="check"><input type="checkbox" name="checkbox"/>パスワードを保存</p>
         <br><a href="signup.ejs">新規登録はこちらから</a>
         <p class="submit"><input type="submit" value="ログイン"/></p>
