@@ -10,6 +10,7 @@ const testDbRouter = require('./routes/test_output_db');
 const test1Router = require('./routes/test1');
 const loginRouter = require('./routes/login');
 const apiRouter = require('./api/sampleapi');
+const newRouter = require('./routes/new');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/testdb', testDbRouter);
 app.use('/test1', test1Router);
 app.use('/login', loginRouter);
 app.use('/api', apiRouter);
+app.use('/new', newRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
