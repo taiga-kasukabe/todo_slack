@@ -3,7 +3,7 @@ SET CHARSET UTF8;
 CREATE TABLE users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id VARCHAR(30) NOT NULL UNIQUE,
-  user_name VARCHAR(30) NOT NULL,
+--   user_name VARCHAR(30) NOT NULL,
   password VARCHAR(20) NOT NULL,
   slack_id VARCHAR(30) DEFAULT NULL,
   PRIMARY KEY (id, user_id)
@@ -11,8 +11,8 @@ CREATE TABLE users (
 
 -- テスト用サンプルユーザー
 INSERT INTO users (user_id, user_name, password) VALUES
-    ('matsumoto01', '松本', 'abcd'),('kasukabe01', '春日部', 'efgh'),
-    ('sakaguchi01', '坂口', 'ijkl'), ('kawase01', '川瀬', 'mnop');
+    ('matsumoto01', 'abcd'),('kasukabe01', 'efgh'),
+    ('sakaguchi01', 'ijkl'), ('kawase01', 'mnop');
 
 -- タスク本体
 CREATE TABLE contents (
