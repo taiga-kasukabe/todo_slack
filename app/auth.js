@@ -26,6 +26,7 @@ passport.use(new LocalStrategy(
                 }
             }
         )
+        con.end();
     }
 
 ))
