@@ -1,37 +1,48 @@
 const connection = require('./dbconnect')
 const bcypt = require('bcrypt') // パスワードハッシュ化
 const passport = require('passport')
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 
 
 const con = connection.createConnect();
-passport.use(new LocalStrategy(
-    {
-        _useridField: "userid",
-        _passwordField: 'password'
-    },(userid, password, done) => {
-        con.connect();
-        con.query(
-            'SELECT * FROM users WHERE user_id = ?',
-            [userid],
-            (error, results) => {
-                if (results.length > 0){
-                    if (password == results[0].password){
-                        return done(null, results[0]);
-                    }else{
-                        return done(null, false, {message: "Invalid Password"})
+module.exports = (app) =>
+{
+    app.use(passport.initialize());
+    app.use(passport.session());
+    passport.serializeUser(function (user, done) {
+        done(null, user);
+    });
+    passport.deserializeUser(function (obj, done) {
+        done(null, obj);
+    });
+
+    passport.use(new LocalStrategy(
+        {
+            usernameField: "userid",
+            passwordField: 'password'
+        },
+        (userid, password, done) => {
+            con.connect();
+            con.query(
+                'SELECT * FROM users WHERE user_id = ?',
+                [userid],
+                (error, results) => {
+                    con.end();
+                    if (results.length > 0) {
+                        if (password === results[0].password) {
+                            return done(null, results[0]);
+                        } else {
+                            return done(null, false, {message: "Invalid Password"})
+                        }
+                    } else {
+                        return done(null, false, {message: "Invalid User"})
                     }
-                }else{
-                    return done(null, false, {message: "Invalid User"})
                 }
-            }
-        )
-        con.end();
-    }
-
-))
-
-module.exports = passport
+            )
+        }
+    ))
+}
+// module.exports = passport
 
 
 
