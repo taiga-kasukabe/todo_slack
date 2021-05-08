@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>TODOリスト</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
     <br><br>
     <div id="form">
     <p class="form-title">ログイン画面</p>
-      <form action="post">
+      <form action="/login" method="post">
         <p>ユーザネーム</p>
         <p class="user"><input type="username" name="user"/></p>
         <p>パスワード</p>
