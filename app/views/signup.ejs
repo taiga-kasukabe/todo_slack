@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 
-    <br><br>
-    <div id="form">
+<head>
+  <meta charset="utf-8">
+  <title>Todo</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <% if (errors.length> 0) { %>
+    <ul>
+      <% errors.forEach(error=> { %>
+        <li>
+          <%= error %>
+        </li>
+        <% }); %>
+    </ul>
+    <% } %>
+  <br><br>
+  <div id="form">
     <p class="form-title">新規登録画面</p>
-      <form action="post">
-        <p>ユーザネーム</p>
-        <p class="user"><input type="username" name="user"/></p>
-        <p>パスワード</p>
-        <p class="pass"><input type="password" name="pass"/></p>
+    <form action="/signup" method="post">
+      <p>ユーザネーム</p>
+      <p class="user"><input type="username" name="user" /></p>
+      <p>パスワード</p>
+      <p class="pass"><input type="password" name="pass" /></p>
 
-        <br>
-        <p class="submit"><input type="submit" value="登録"/></p>
-      </form>
-    </div>
+      <br>
+      <p class="submit"><input type="submit" value="登録" /></p>
+    </form>
+  </div>
 
-  </body>
+</body>
+
 </html>
