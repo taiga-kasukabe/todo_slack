@@ -1,86 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>タイトル</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body bgcolor = "#c8f5c3">  
-    <h2>
-      <p>
-        <%= items[0].user_id %>さん
-      </p>
-    </h2>
-    <p class = "sec">ToDoリスト</p>
-    <br>
 
-    <table border="3" bgcolor="#ffffff">
 
-      <tr bgcolor = "#44db30">
-        
-        <th>タスク名</th>
-        <th>期限</th>
-        <th>完了</th>
-      </tr>
+<head>
+  <title>タイトル</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-      <% items.forEach((items) =>{%>
-        <% if (items.done === 0) { %>
-          <tr>
-            <td><%= items.text %></td>
-            <td><%= items.task_limit %></td>
-            <td bgcolor = "#40b131">
-              <form action="/" methot = "post">
-                <input type="submit" class="btn btn--green" value="完了"/></p>
-              </form>
-            </td>
-          </tr>
-          <% } else { %>
+<body bgcolor="#c8f5c3">
+
+  <h2>
+    <p>
+      <%= items[0].user_id %>さん
+    </p>
+  </h2>
+
+  <p class="sec">ToDoリスト</p>
+  <br>
+
+  <table border="3" bgcolor="#ffffff">
+
+    <tr bgcolor="#44db30">
+
+      <th>タスク名</th>
+      <th>期限</th>
+      <th>完了</th>
+    </tr>
+
+    <% items.forEach((items)=>{%>
+      <% if (items.done===0) { %>
+        <tr>
+          <td>
+            <%= items.text %>
+          </td>
+          <td>
+            <%= items.task_limit %>
+          </td>
+          <td bgcolor="#40b131">
+            <form action="/done/<%= items.id%>" method="post">
+              <input type="submit" class="btn btn--green" value="完了" /></p>
+            </form>
+          </td>
+        </tr>
+        <% } else { %>
           <p></p>
-        <% } %>
-        
-      <% })%>
-      
-    </table>
-    
-    <form action="/new" methot = "post">
-      <p class="submit"><input type="submit" value="タスクの追加"/></p>
-    </form>
+          <% } %>
 
-    <br><br><br>
-    <p class = "sec">完了タスク</p>
-    <br>
-    
-    <table border="3" bgcolor="#ffffff">
+            <% })%>
 
-      <tr bgcolor = "#44db30">
-        
-        <th>終了タスク名</th>
-        <th>期限</th>
+  </table>
 
-        <th>戻す</th>
-        <th>削除</th>
-      </tr>
-      <% items.forEach((items) =>{%>
-        <% if (items.done === 1) { %>
-          <tr>
-            <td><%= items.text %></td>
-            <td><%= items.task_limit %></td>
-            <td bgcolor = "#3175db">
-              <form action="/" methot = "post">
-                <input type="submit" class = "btn btn--blue" value="戻す"/></p>
-              </form>
-            </td>
-            <td bgcolor = "#f83a3a">
-              <form action="/delete" methot = "post">
-                <input type="submit" class = "btn btn--red" value="削除"/></p>
-              </form>
-            </td>
-          </tr>
-          <% } else { %>
-          
-        <% } %>
-        
-      <% })%>
-    </table>
+  <form action="/new" methot="post">
+    <p class="submit"><input type="submit" value="タスクの追加" /></p>
+  </form>
 
-  </body>
+  <br><br><br>
+  <p class="sec">完了タスク</p>
+  <br>
+
+  <table border="3" bgcolor="#ffffff">
+
+    <tr bgcolor="#44db30">
+
+      <th>終了タスク名</th>
+      <th>期限</th>
+
+      <th>戻す</th>
+      <th>削除</th>
+    </tr>
+    <% items.forEach((items)=>{%>
+      <% if (items.done===1) { %>
+        <tr>
+          <td>
+            <%= items.text %>
+          </td>
+          <td>
+            <%= items.task_limit %>
+          </td>
+          <td bgcolor="#3175db">
+            <form action="/" methot="post">
+              <input type="submit" class="btn btn--blue" value="戻す" /></p>
+            </form>
+          </td>
+          <td bgcolor="#f83a3a">
+            <form action="/delete" methot="post">
+              <input type="submit" class="btn btn--red" value="削除" /></p>
+            </form>
+          </td>
+        </tr>
+        <% } else { %>
+
+          <% } %>
+
+            <% })%>
+  </table>
+
+</body>
+
 </html>
