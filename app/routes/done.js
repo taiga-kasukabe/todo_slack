@@ -8,7 +8,7 @@ const connection = require('../dbconnect')
 
 // handler for the /user/:id path, which prints the user ID
 router.post('/done/:id', function (req, res, next) {
-    res.end(req.params.id);
+    res.send(req.params.id);
 });
 
 
