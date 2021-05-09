@@ -10,10 +10,10 @@ module.exports = (app) =>
     app.use(passport.initialize());
     app.use(passport.session());
     passport.serializeUser(function (user, done) {
-        done(null, user);
+        done(null, user.id);
     });
-    passport.deserializeUser(function (obj, done) {
-        done(null, obj);
+    passport.deserializeUser(function (id, done) {
+        done(null, id);
     });
 
     passport.use(new LocalStrategy(
