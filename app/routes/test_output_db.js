@@ -9,7 +9,7 @@ const router = express.Router();
 //     password: 'apppasswd',
 //     database: 'data01'
 // });
-con = connection.createConnect()
+const con = connection.createConnect();
 router.get('/', (req, res)=>{
     con.connect();
    con.query(

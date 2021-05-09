@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
@@ -9,6 +10,9 @@ const usersRouter = require('./routes/users');
 const testDbRouter = require('./routes/test_output_db');
 const test1Router = require('./routes/test1');
 const loginRouter = require('./routes/login');
+const signupRouter = require('./routes/signup');
+const deleteRouter = require('./routes/delete');
+const doneRouter = require('./routes/done');
 const apiRouter = require('./api/sampleapi');
 
 const app = express();
@@ -23,12 +27,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// セッション
+app.use(session({
+  secret: "testing",
+  resave: false,
+  saveUninitialized: true,
+}))
+
+//auth
+require('./auth')(app);
+
+//router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testdb', testDbRouter);
 app.use('/test1', test1Router);
 app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
+app.use('/delete', deleteRouter);
 app.use('/api', apiRouter);
+app.use('/done', doneRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
