@@ -16,5 +16,16 @@ router.get('/', function (req, res, next) {
     }
   );
   // con.end();
-});module.exports = router;
+});
+
+router.post('/', (req, res, next) => {
+  console.log(req.body.id);
+  // con.query(
+  //   'SELECT* FROM contents WHERE id =?',
+  //   [req.body.id], (error, results) => { }
+  // );
+})
+
+module.exports = router;
+
 
