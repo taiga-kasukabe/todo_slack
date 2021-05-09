@@ -1,10 +1,20 @@
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
 const express = require('express');
 const router = express.Router();
+const connection = require('../dbconnect')
+
+const con = connection.createConnect();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+router.get('/', function (req, res, next) {
+  con.query(
+    'SELECT * FROM contents WHERE user_id = ?', ['kasukabe01'],
+    (error, results) => {
+      res.render('index', { items: results });
+    }
+  );
+  // con.end();
+});module.exports = router;
 
