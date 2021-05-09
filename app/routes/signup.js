@@ -61,6 +61,12 @@ router.post('/',
             'INSERT INTO users (user_id, password) VALUES(?, ?)',
             [userId, password], function (error, results, fields) {
                 if (error) throw error;
+                // res.redirect('/login');
+            });
+        con.query(
+            'INSERT INTO contents (user_id, text) VALUES(?,?)',
+            [userId, '初めまして'], (error, results) => {
+                if (error) throw error;
                 res.redirect('/login');
             });
         // con.end();
