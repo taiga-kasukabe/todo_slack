@@ -27,7 +27,6 @@ module.exports = (app) =>
                 'SELECT * FROM users WHERE user_id = ?',
                 [userid],
                 (error, results) => {
-                    con.end();
                     if (results.length > 0) {
                         if (password === results[0].password) {
                             return done(null, results[0]);
@@ -38,7 +37,9 @@ module.exports = (app) =>
                         return done(null, false, {message: "Invalid User"})
                     }
                 }
+
             )
+            con.end();
         }
     ))
 }
