@@ -28,14 +28,17 @@ router.get('/', (req,res,next) => {
 
 
 router.post('/done/:id', (req, res, next) => {
-  // console.log(req.params.id);
   res.send('this is Done');
-  // con.query(
-  //   'SELECT* FROM contents WHERE id =?',
-  //   [req.body.id], (error, results) => { }
-  // );
-console.log(req.params.id);
-})
+//   const id = req.params.id;
+//   con.query(
+// 'UPDATE contents SET done = 1 WHERE id=?',[id],
+// (error, results) => {
+//   if(error) throw error;
+//   res.redirect('/');
+// }
+//   );
+// console.log(id);
+});
 
 
 module.exports = router;
