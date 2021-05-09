@@ -28,16 +28,15 @@ router.get('/', (req,res,next) => {
 
 
 router.post('/done/:id', (req, res, next) => {
-  res.send('this is Done');
-//   const id = req.params.id;
-//   con.query(
-// 'UPDATE contents SET done = 1 WHERE id=?',[id],
-// (error, results) => {
-//   if(error) throw error;
-//   res.redirect('/');
-// }
-//   );
-// console.log(id);
+  const id = req.params.id;
+  con.query(
+'UPDATE contents SET done = 1 WHERE id=?',[id],
+(error, results) => {
+  if(error) throw error;
+  res.redirect('/');
+}
+  );
+console.log(id);
 });
 
 
