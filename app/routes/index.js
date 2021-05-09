@@ -8,9 +8,17 @@ const connection = require('../dbconnect')
 const con = connection.createConnect();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', (req,res,next) => {
+    if (req.isAuthenticated()) {
+        next();
+    }else{
+     res.redirect('/login');
+    }
+    },
+    (req, res, next)=> {
+    const userid = req.user;
   con.query(
-    'SELECT * FROM contents WHERE user_id = ?', ['kasukabe01'],
+    'SELECT * FROM contents WHERE user_id = ?', [userid],
     (error, results) => {
       res.render('index', { items: results });
     }
@@ -18,13 +26,6 @@ router.get('/', function (req, res, next) {
   // con.end();
 });
 
-router.post('/', (req, res, next) => {
-  console.log(req.body.id);
-  // con.query(
-  //   'SELECT* FROM contents WHERE id =?',
-  //   [req.body.id], (error, results) => { }
-  // );
-})
 
 module.exports = router;
 
