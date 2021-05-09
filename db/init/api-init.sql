@@ -25,5 +25,7 @@ CREATE TABLE contents (
 
 -- テスト用サンプルタスク
 INSERT INTO contents (user_id, text) VALUES
-    (1, 'データベース作成'), (2, '認証周りの実装'),
-    (3, 'hoge'), (4, 'hogege');
+    (1, 'データベース定義の作成'), (2, '認証周りの実装'),
+    (3, 'hoge'), (4, 'hogege'),
+    (1, '初期SQL作成'), (2, '認証周りの検証'),
+    (3, 'fuga'), (4, 'fugaga');
